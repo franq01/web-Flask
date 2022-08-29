@@ -4,6 +4,9 @@ from flask import Flask, render_template
 
 app = Flask(__name__)
 
+
+##### rutas public #######
+
 @app.route('/')
 def index():
     return render_template('public/index.html')
@@ -20,6 +23,10 @@ def contact():
 @app.route('/portfolio')
 def portfolio():
     return render_template ('public/portfolio.html')
+
+
+    ###### rutas ####
+    
 
 
 if __name__ == '__main__':
