@@ -26,7 +26,14 @@ def portfolio():
 
 
     ###### rutas ####
-    
+@app.route('/auth/login')
+def login ():
+    return render_template('auth/login.html')
+
+@app.route('/auth/registrer')
+def register():
+     return render_template('auth/registrer.html')
+
 
 
 if __name__ == '__main__':
