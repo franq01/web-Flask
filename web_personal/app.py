@@ -1,5 +1,5 @@
 
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 
 
 app = Flask(__name__)
@@ -34,13 +34,16 @@ def login ():
 def register():
      return render_template('auth/registrer.html')
 
-@app.route('/welcomme')
-def welcomme():
-    email = request.args.get('email')
-    password = request.args.get('password')
-    access={'email':email,'password':password}
 
-    return render_template('admin/index.html',user_access=access)
+############ aqui tengo el er
+@app.route('/welcome', methods=['GET' , 'POST'])
+
+def welcome():
+    email = request.form['mail']
+    password = request.form['password']
+    access = {'email': email, 'password':password}
+
+    return render_template('admin/index.html', user_access=access )
 
 
 
