@@ -34,6 +34,14 @@ def login ():
 def register():
      return render_template('auth/registrer.html')
 
+@app.route('/welcomme')
+def welcomme():
+    email = request.args.get('email')
+    password = request.args.get('password')
+    access={'email':email,'password':password}
+
+    return render_template('admin/index.html',user_access=access)
+
 
 
 if __name__ == '__main__':
