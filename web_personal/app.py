@@ -1,8 +1,11 @@
 
 from flask import Flask, render_template, request
+from  flask_wtf import FlaskForm
+from wtforms import StringField, PasswordField, SubmitField
 
 
 app = Flask(__name__)
+app.config['SECRET_KEY'] = 'secret'
 
 
 ##### rutas public #######
@@ -23,6 +26,15 @@ def contact():
 @app.route('/portfolio')
 def portfolio():
     return render_template ('public/portfolio.html')
+
+
+    #################### Formularios de WTforms  #########################
+
+    class loginForm(FlaskForm):
+        username = StringField ('Username')
+        password = StringField ('Password')
+
+        submit = SubmitField ('Login')
 
 
     ###### rutas ####
